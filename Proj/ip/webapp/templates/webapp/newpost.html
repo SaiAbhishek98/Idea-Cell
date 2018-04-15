@@ -1,0 +1,12 @@
+{% extends "webapp/index.html" %}
+{% block content %}
+<h1> Form </h1>
+
+<form action="{% url 'creates' %}" method="post">
+{% csrf_token %}
+Subject <input type="text" name="subject"><br><br>
+Body    <input type="text" name="body" ><br><br>
+
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}

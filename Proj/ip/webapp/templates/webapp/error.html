@@ -1,0 +1,11 @@
+{% extends "webapp/index.html" %}
+{% block content %}
+
+<h3>ERROR MESSAGE</h3>
+{% if error_message %}
+  {{error_message}}
+{% else %}
+  <h5>There was no query passed</h5>
+{% endif %}
+
+{% endblock %}

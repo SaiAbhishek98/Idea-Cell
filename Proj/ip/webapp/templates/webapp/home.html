@@ -1,0 +1,14 @@
+{% extends "webapp/index.html" %}
+{% block content %}
+<h2> Posts </h2>
+<a href="/ideas/"> View Ideas </a><br>
+<h2> Create Post </h2>
+<a href ="{% url 'creates' %}">New</a><br><br>
+active users
+<br><br>
+{% if user_set %}
+{{ user }}
+<a href ="{% url 'logoutrender' %}">Logout</a><br><br>
+{% endif %}
+
+{% endblock %}
