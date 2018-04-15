@@ -12,7 +12,7 @@ from django.db.models import (
 # Create your models here.
 
 class Idea(models.Model):
-    user = OneToOneField(User, max_length=5, on_delete='CASCADE')
+    user = ForeignKey(User, max_length=5, on_delete='CASCADE')
     text = CharField(max_length = 100, default = "No text")
     subject = CharField(max_length = 30, default ="No Subject")
     date_time =  DateTimeField('Date published',auto_now=True)
