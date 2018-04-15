@@ -1,0 +1,109 @@
+
+{% load static %}
+
+<!DOCTYPE HTML>
+<!--
+	Visualize by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Visualize by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					
+						<h1>POST</h1>
+						
+					</header>
+
+				<!-- Main -->
+					<section id="main">
+
+						<!-- Thumbnails -->
+						<!--post-->
+						{% if queryset %}
+
+						<section class="thumbnails">
+								<div>
+									<a href="#">
+										<img src="" alt="" />
+										<div class="b"><h3 style="font-weight:bold;"><strong>{{queryset.user.username}} </strong></h3><h3 style="font-weight:bold;"><strong>{{queryset.subject}}</strong></h3></div>
+										<hr>
+										
+										<div class="c">
+										<p style="color:black;font-family:Lucida Console", Monaco, monospace;"><strong>{{queryset.text}}</strong></p>
+										<!--end content--></div>
+										
+										
+										
+									</a>
+
+
+									
+
+
+								</div>
+								
+								
+							</section>
+							{% endif %}
+							<!--post-->
+	<h1>COMMENTS ....</h1>
+	{% for comments in Comms %}
+							<section class="thumbnails">
+								<div>
+									<a href="#">
+										<img src="" alt="" />
+										<div class="b"><h3 style="font-weight:bold;"><strong>{{comments.user.username }} says..</strong></h3></div>
+										<hr>
+										
+										<div class="c">
+										<p style="color:black;">{{comments.ctext}}</p>
+										<!--end content--></div>
+										<hr>
+										<h6 style="text-align:left">time</h6>
+										
+									</a>
+ {% endfor %}	
+
+									
+
+
+								</div>
+								
+								
+							</section>
+
+					</section>
+
+					
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+
+

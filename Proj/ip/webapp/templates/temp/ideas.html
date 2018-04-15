@@ -1,0 +1,33 @@
+{% extends "webapp/index.html" %}
+{% block content %}
+<h1>Post Details</h1>
+{% if queryset %}
+  
+  Idea subject :  {{queryset.subject}}<br>
+  Idea content :  {{queryset.text}}<br>
+  Idea Creator :  {{queryset.user.username}}<br>
+  Post date    :  {{queryset.date_time}}<br>
+
+  <a href="{% url 'like' queryset.pk %}" >Like</a>
+
+  <Comments Section>
+  {% for comments in Comms %}
+  	<p>User : {{comments.user.username }} says: <br>
+  		{{comments.ctext}}
+</p>
+-----------------------------------------------------------------
+  {% endfor %}	
+  <br>
+<textarea rows="4" cols="50" name="comment" form="commform">
+</textarea>
+  <form method="POST" action="{% url 'comment' queryset.pk %}" id ="commform">
+  {% csrf_token %}
+  	Send : <input type="submit">
+  </form>
+    
+
+  
+
+{% endif %}
+
+{% endblock %}

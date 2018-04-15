@@ -1,0 +1,17 @@
+{% extends "webapp/index.html" %}
+{% block content %}
+
+<h1>List of all posts</h1>
+
+{% for idea in queryset %}
+
+  <a href ="{% url 'viewIdeas' idea.pk %}">
+  {{idea.user.username}}:<br>
+  {{idea.subject}}
+</a>
+<br>
+  --------------------------------------------------------------------------------------------
+  <br>
+{% endfor%}
+
+{% endblock %}
