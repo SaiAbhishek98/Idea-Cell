@@ -35,7 +35,7 @@
 						{% for idea in queryset %}
 							<section class="thumbnails">
 								<div>
-									<a href="{% url 'viewIdeas' idea.pk %}">
+									<a>
 										<img src="" alt="" />
 										<div class="b"><h3 style="font-weight:bold;">{{idea.user.username}}</h3><h3 style="font-weight:bold;">{{idea.subject}}</h3></div>
 										<hr>
@@ -45,10 +45,18 @@
 										<!--end content--></div>
 										<hr>
 										
-										<div class="b">
-										
-										<i class="icon style2 fa-thumbs-up"></i>
-										<i class="icon style2 fa-comment"></i></div>
+										<div class="b"><p>
+										<form action="{% url 'like' idea.pk %}" method="GET">
+
+											<input type="submit" name="like" value="Like">
+										</form>
+										<form action="{% url 'viewIdeas' idea.pk %}" method="GET">
+
+											<input type="submit" name="like" value="Comment">
+										</form>
+									</p>
+										<!-- <a href="{% url 'like' idea.pk %}" >Like</a><i class="icon style2 fa-thumbs-up"></i> -->
+										<!-- <a href="{% url 'viewIdeas' idea.pk %}">Comment</a><i class="icon style2 fa-comment"></i>--></div> 
 
 									</a>
 

@@ -36,7 +36,7 @@
 
 						<section class="thumbnails">
 								<div>
-									<a href="#">
+									<a>
 										<img src="" alt="" />
 										<div class="b"><h3 style="font-weight:bold;"><strong>{{queryset.user.username}} </strong></h3><h3 style="font-weight:bold;"><strong>{{queryset.subject}}</strong></h3></div>
 										<hr>
@@ -45,9 +45,9 @@
 										<p style="color:black;font-family:Lucida Console", Monaco, monospace;"><strong>{{queryset.text}}</strong></p>
 										<!--end content--></div>
 										
+										</a>
 										
-										
-									</a>
+									
 
 
 									
@@ -60,10 +60,30 @@
 							{% endif %}
 							<!--post-->
 	<h1>COMMENTS ....</h1>
+	<section class="thumbnails">
+								<div>
+									
+										<div class="b"><h3 style="font-weight:bold;"><strong>Enter a suggestion..</strong></h3></div>
+										<hr>
+										<textarea rows="4" cols="50" name="comment" form="commform"></textarea>
+  <form method="POST" action="{% url 'comment' queryset.pk %}" id ="commform">
+  {% csrf_token %}
+  <input type="submit">
+  </form>
+										
+										
+
+
+								</div>
+								
+								
+							</section>
+
+					</section>
 	{% for comments in Comms %}
 							<section class="thumbnails">
 								<div>
-									<a href="#">
+								<a>
 										<img src="" alt="" />
 										<div class="b"><h3 style="font-weight:bold;"><strong>{{comments.user.username }} says..</strong></h3></div>
 										<hr>
@@ -72,10 +92,9 @@
 										<p style="color:black;">{{comments.ctext}}</p>
 										<!--end content--></div>
 										<hr>
-										<h6 style="text-align:left">time</h6>
-										
-									</a>
- {% endfor %}	
+										<h6 style="text-align:left">{{comments.date_time}}</h6>
+									</a>	
+									 {% endfor %}	
 
 									
 

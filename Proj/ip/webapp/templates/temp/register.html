@@ -1,0 +1,14 @@
+{% extends "webapp/index.html" %}
+{% block content %}
+<h1> Form </h1>
+
+<form action="{% url 'register' %}" method="post">
+{% csrf_token %}
+ID <input type="text" name="user"><br><br>
+Password    <input type="text" name="pwd" ><br><br>
+Fname    <input type="text" name="fname" ><br><br>
+Lname    <input type="text" name="lname" ><br><br>
+rolcall   <input type="text" name="rollcall" ><br><br>
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}

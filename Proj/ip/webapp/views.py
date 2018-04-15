@@ -45,8 +45,24 @@ def logoutrender(request):
 
 #Renders Registration Page
 def register_render(request):
-        return render(request,'webapp/register.html')
+    if request.user is not None:
+        if request.method == "POST":
+            username = request.POST['user']
+            try:
+                User.objects.get(username = username)
+            except User.DoesNotExist:
+                password = request.POST['pwd']
+                User.objects.create(username = username, password = password)
+                user = User.objects.get(username = username)
+                user.set_password(password)
+                user.save()
 
+
+            return HttpResponseRedirect(reverse(login_render))
+        else:
+            return render(request,'webapp/register.html')
+    else:
+        return HttpResponseRedirect(reverse(index))
 
 def creates(request):
     queryset = Idea.objects.all()
