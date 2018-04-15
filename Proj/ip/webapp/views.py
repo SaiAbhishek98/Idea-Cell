@@ -81,7 +81,7 @@ def likePost(request, pk):
             except Like.DoesNotExist:
                 Like.objects.create(user= user, ideas = Idea.objects.get(pk = pk))
             
-            #return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         else:
             logout(request)
             return render(request,'webapp/ll.html') 
