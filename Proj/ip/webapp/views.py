@@ -33,8 +33,10 @@ def loginreq(request):
 
 #Renders Login Page
 def login_render(request):
-    return render(request,'webapp/ll.html')
-
+    if request.user is not None:
+        return render(request,'webapp/ll.html')
+    else:
+        return HttpResponseRedirect(reverse(index))
 #Function of logout button
 @login_required(redirect_field_name='login_render')
 def logoutrender(request):
